@@ -107,12 +107,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-if DEBUG:
-    STATICFILES_DIRS = (
-        BASE_DIR / '/home/abdusama/abdusamad.uz/django/static_files',)
-else:
-    STATIC_ROOT = BASE_DIR / '/home/abdusama/abdusamad.uz/django/static'
+STATICFILES_DIRS = '/home/abdusama/abdusamad.uz/django/static_files',
+STATIC_ROOT = '/home/abdusama/abdusamad.uz/django/static'
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / '/home/abdusama/abdusamad.uz/django/media'
 # Default primary key field type
