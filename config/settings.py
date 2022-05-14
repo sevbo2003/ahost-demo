@@ -19,6 +19,7 @@ ALLOWED_HOSTS = ["abdusamad.uz", "www.abdusamad.uz"]
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -30,6 +31,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -106,9 +108,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 if DEBUG:
-    STATICFILES_DIRS = (BASE_DIR / 'static_files',)
+    STATICFILES_DIRS = (
+        BASE_DIR / '/home/abdusama/abdusamad.uz/django/static_files',)
 else:
     STATIC_ROOT = BASE_DIR / '/home/abdusama/abdusamad.uz/django/static'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / '/home/abdusama/abdusamad.uz/django/media'
 # Default primary key field type
